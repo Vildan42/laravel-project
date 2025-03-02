@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
     <div>
-        <form action="{{ route('cars.update', $car->id) }}" method="post">
+        <br><form action="{{ route('cars.update', $car->id) }}" method="post">
             @csrf
             @method('patch')
             <div class="form-group">
@@ -26,3 +26,17 @@
         </form>
     </div>
 @endsection
+
+<head>
+    <style>
+        .btn {
+            background-color: green;
+            color: white;
+            font-size: 13px;
+            padding: 7px 10px;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
     <div>
-        <form action="{{ route('cars.store') }}" method="post">
+        <br><form action="{{ route('cars.store') }}" method="post">
             @csrf
             <div class="form-group">
                 <label for="model">Model</label>

@@ -1,13 +1,15 @@
 @extends('layouts.main')
 @section('content')
     <div>
-        <a href="{{ route('cars.create')}}" class="btn btn-primary mb-3">Create</a>
+        <br><a class="green-button" href="{{ route('cars.create')}}" class="btn btn-primary mb-3">Create</a>
     </div>
     <div>
+        <br>
         <table class="table">
             <thead class="thead-light">
             <tr>
                 <th scope="col">#</th>
+                <th scope="col">ID</th>
                 <th scope="col">Model</th>
                 <th scope="col">Company</th>
                 <th scope="col">Weight</th>
@@ -16,20 +18,21 @@
             </thead>
             <tbody>
 
-            @foreach($cars as $car)
+            @foreach($cars as $index => $car)
                 <tr>
+                    <th>{{$index+1}}</th>
                     <th scope="row">{{$car->id}}</th>
                     <td>{{$car->model}}</td>
                     <td>{{$car->company}}</td>
                     <td>{{$car->weight}}</td>
                     <td></td>
-                    <td><a href="{{ route('cars.show', $car->id) }}">Show</a></td>
-                    <td><a href="{{ route('cars.edit', $car->id) }}">Edit</a></td>
+                    <td><a  class="green-button" href="{{ route('cars.show', $car->id) }}">Show</a></td>
+                    <td><a  class="green-button" href="{{ route('cars.edit', $car->id) }}">Edit</a></td>
                     <td>
                         <form action="{{ route('cars.delete', $car->id) }}" method="post">
                         @csrf
                         @method('delete')
-                        <input type="submit" value="Delete">
+                        <input  class="red-button" type="submit" value="Delete">
                         </form>
                     </td>
                 </tr>
@@ -53,6 +56,15 @@
 
         .green-button:hover {
             background-color: darkgreen;
+        }
+        .red-button {
+            background-color: red;
+            color: white;
+            font-size: 13px;
+            padding: 7px 10px;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
         }
 
         .table {

@@ -23,6 +23,7 @@ Route::get('/admin/cars/create', [CarController::class, 'create'])->name('cars.c
 
 Route::post('/admin/cars', [CarController::class, 'store'])->name('cars.store');
 Route::get('/admin/cars/{car}', [CarController::class, 'show'])->name('cars.show');
+
 Route::get('/admin/cars/{car}/edit', [CarController::class, 'edit'])->name('cars.edit');
 Route::patch('/admin/cars/{car}', [CarController::class, 'update'])->name('cars.update');
 
