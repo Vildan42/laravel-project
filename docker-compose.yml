@@ -1,0 +1,20 @@
+version: "3.6"
+
+services:
+  laravel-project:
+    container_name: laravel-project
+    image: goldcarrot/php8.1-apache:latest
+    working_dir: /var/www/application
+    volumes:
+      - ./docker/php.ini:/usr/local/etc/php/php.ini
+      - ./:/var/www/application
+    environment:
+      APACHE_DOCUMENT_ROOT: /var/www/application/public
+      ENABLE_XDEBUG: 0
+      VIRTUAL_HOST: lar.local.gd
+    networks:
+      - goldcarrot
+networks:
+  goldcarrot:
+    name: goldcarrot
+    driver: bridge
