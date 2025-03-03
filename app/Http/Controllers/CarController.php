@@ -9,7 +9,6 @@ class CarController extends Controller
 {
     public function index()
     {
-        $car = Car::find(1);
         $cars = Car::all();
         return view('admin/cars/index', compact('cars'));
     }
@@ -47,7 +46,7 @@ class CarController extends Controller
         $car->update($data);
         return redirect()->route('cars.index');
     }
-  public function delete(Car $car)
+  public function destroy(Car $car)
     {
         $car->delete();
         return redirect()->route('cars.index');

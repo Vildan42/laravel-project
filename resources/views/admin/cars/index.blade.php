@@ -29,7 +29,7 @@
                     <td><a  class="green-button" href="{{ route('cars.show', $car->id) }}">Show</a></td>
                     <td><a  class="green-button" href="{{ route('cars.edit', $car->id) }}">Edit</a></td>
                     <td>
-                        <form action="{{ route('cars.delete', $car->id) }}" method="post">
+                        <form action="{{ route('cars.destroy', $car->id) }}" method="post">
                         @csrf
                         @method('delete')
                         <input  class="red-button" type="submit" value="Delete">
