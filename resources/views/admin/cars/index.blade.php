@@ -1,7 +1,7 @@
-@extends('layouts.main')
+@extends('admin.layouts.main')
 @section('content')
     <div>
-        <br><a class="green-button" href="{{ route('cars.create')}}" class="btn btn-primary mb-3">Create</a>
+        <br><a class="grey-button" href="{{ route('cars.create')}}" class="btn btn-primary mb-3">Create</a>
     </div>
     <div>
         <br>
@@ -13,7 +13,7 @@
                 <th scope="col">Model</th>
                 <th scope="col">Company</th>
                 <th scope="col">Weight</th>
-                <th scope="col">Image</th>
+                <th scope="col">Image_id</th>
             </tr>
             </thead>
             <tbody>
@@ -25,14 +25,14 @@
                     <td>{{$car->model}}</td>
                     <td>{{$car->company}}</td>
                     <td>{{$car->weight}}</td>
-                    <td></td>
-                    <td><a  class="green-button" href="{{ route('cars.show', $car->id) }}">Show</a></td>
-                    <td><a  class="green-button" href="{{ route('cars.edit', $car->id) }}">Edit</a></td>
+                    <td>{{$car->image_id}}</td>
+                    <td><a class="green-button" href="{{ route('cars.show', $car->id) }}">Show</a></td>
+                    <td><a class="green-button" href="{{ route('cars.edit', $car->id) }}">Edit</a></td>
                     <td>
                         <form action="{{ route('cars.destroy', $car->id) }}" method="post">
-                        @csrf
-                        @method('delete')
-                        <input  class="red-button" type="submit" value="Delete">
+                            @csrf
+                            @method('delete')
+                            <input class="red-button" type="submit" value="Delete">
                         </form>
                     </td>
                 </tr>
@@ -57,6 +57,17 @@
         .green-button:hover {
             background-color: darkgreen;
         }
+
+        .grey-button {
+            background-color: dimgrey;
+            color: white;
+            font-size: 13px;
+            padding: 7px 10px;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
         .red-button {
             background-color: red;
             color: white;
@@ -81,6 +92,7 @@
             background: #90ee90;
             border: 3px solid #228b22;
         }
+
         .table td {
             padding: 3px;
             border: 3px solid #228b22;

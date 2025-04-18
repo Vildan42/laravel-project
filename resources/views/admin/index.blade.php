@@ -1,6 +1,7 @@
-@extends('layouts.main')
+@extends('admin.layouts.main')
 @section('content')
-    <br><div>
-       Hello!
+    <br>
+    <div>
+        Hello!
     </div>
 @endsection

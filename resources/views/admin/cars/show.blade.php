@@ -1,32 +1,33 @@
-@extends('layouts.main')
+@extends('admin.layouts.main')
 @section('content')
     <div>
-        <br><table class="table">
+        <br>
+        <table class="table">
             <thead class="thead-light">
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Model</th>
                 <th scope="col">Company</th>
                 <th scope="col">Weight</th>
-                <th scope="col">Image</th>
+                <th scope="col">Image_id</th>
             </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">{{$car->id}}</th>
-                    <td>{{$car->model}}</td>
-                    <td>{{$car->company}}</td>
-                    <td>{{$car->weight}}</td>
-                    <td></td>
-                    <td><a class="green-button" href="{{ route('cars.edit', $car->id) }}">Edit</a></td>
-                    <td>
-                        <form  action="{{ route('cars.destroy', $car->id) }}" method="post">
-                            @csrf
-                            @method('delete')
-                            <input class="red-button" type="submit" value="Delete">
-                        </form>
-                    </td>
-                </tr>
+            <tr>
+                <th scope="row">{{$car->id}}</th>
+                <td>{{$car->model}}</td>
+                <td>{{$car->company}}</td>
+                <td>{{$car->weight}}</td>
+                <td>{{$car->image_id}}</td>
+                <td><a class="green-button" href="{{ route('cars.edit', $car->id) }}">Edit</a></td>
+                <td>
+                    <form action="{{ route('cars.destroy', $car->id) }}" method="post">
+                        @csrf
+                        @method('delete')
+                        <input class="red-button" type="submit" value="Delete">
+                    </form>
+                </td>
+            </tr>
             <tbody>
         </table>
     </div>
@@ -51,6 +52,7 @@
             .green-button:hover {
                 background-color: darkgreen;
             }
+
             .red-button {
                 background-color: red;
                 color: white;
@@ -75,6 +77,7 @@
                 background: #90ee90;
                 border: 3px solid #228b22;
             }
+
             .table td {
                 padding: 3px;
                 border: 3px solid #228b22;
